@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Cranberry</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size: 16px;}
@@ -16,19 +16,26 @@ img {margin-bottom: -8px;}
 
 <!-- Header with Slideshow -->
 <header class="w3-display-container w3-center">
-  <div class="mySlides w3-animate-opacity">
-    <img class="w3-image" src="aerial.jpg" alt="Image 1" style="min-width:500px" width="1500" height="1000">
-    <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+  <div style=width:inherit; class="mySlides w3-animate-opacity">
+    <!--<PageMap>
+    <DataObject type="thumbnail">
+      <Attribute name="src" value="ThickTree.jpg"/>
+      <Attribute name="width" value="100"/>
+      <Attribute name="height" value="130"/>
+    </DataObject>
+    </PageMap>-->
+    <img class="w3-image" src="ThickTree.jpg" alt="Image 1" width=100%s height="1000">
+    <div class="w3-display-middle w3-padding w3-hide-small" style="width:35%">
       <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
-        <h1 class="w3-xlarge w3-text-red"><b>CLICK!</b> Fast and Easy</h1>
+        <h1 class="w3-xlarge w3-text-white"><b>Predator</b></h1>
         <hr class="w3-opacity">
-        <p>Choose from thousands of features</p>
+        <p>One Step Process</p>
       </div>
     </div>
   </div>
   <div class="mySlides w3-animate-opacity">
-    <img class="w3-image" src="drono.jpg" alt="Image 2" style="min-width:500px" width="1500" height="1000">
-    <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+    <img class="w3-image" src="drono.jpg" alt="Image 2" width=100% height="1000">
+    <div class="w3-display-middle w3-padding w3-hide-small" style="width:35%">
       <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
         <h1 class="w3-xlarge">Smart Design</h1>
         <hr class="w3-opacity">
@@ -37,8 +44,8 @@ img {margin-bottom: -8px;}
     </div>
   </div>
    <div class="mySlides w3-animate-opacity">
-    <img class="w3-image" src="babypig.jpg" alt="Image 3" style="min-width:500px" width="1500" height="1000">
-    <div class="w3-display-left w3-padding w3-hide-small" style="width:35%">
+    <img class="w3-image" src="babypig.jpg" alt="Image 3" width=100% height="1000">
+    <div class="w3-display-middle w3-padding w3-hide-small" style="width:35%">
       <div class="w3-black w3-opacity w3-hover-opacity-off w3-padding-large w3-round-large">
         <h1 class="w3-xlarge">Smart Design</h1>
         <hr class="w3-opacity">
@@ -56,77 +63,62 @@ img {margin-bottom: -8px;}
 
 
 
-<!-- The editable Section -->
+<!-- 1st Section -- The editable Section------------------------------------------------------------------ -->
 <div class="w3-padding-64 w3-white">
   <div class="w3-row-padding">
-    <div class="w3-col l8 m6">
-
-      <h1 class="w3-jumbo"><b>The App</b></h1> <!-- Place the header here-->
-      <h1 class="w3-xxxlarge w3-text-green"><b>Why buy it?</b></h1> <!-- Place the sub-header here-->
-
-      <!-- Content in here-->
-      <p><span class="w3-xlarge">Take photos like a pro.</span> You should buy this app because Blake Zahra</p>
+    <div class="w3-col.s12 l8 m6">
+      <?php $key = "AIzaSyAHOq3rbK1N-LM0-s0Q7p1SM0t7qjBImzs";?>
+      <div style=width:inherit;>
+        <iframe
+          width="100%"
+          height="450"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAHOq3rbK1N-LM0-s0Q7p1SM0t7qjBImzs
+            &q=Melbourne+Victoria" allowfullscreen>
+        </iframe>
+      </div>  
     </div>
-        <!-- Content end here-->
-
-
-    <!-- Place the image here twice-->
-    <div class="w3-col l4 m6">
-      <img src="/w3images/img_app.jpg" class="w3-image w3-right w3-hide-small" width="335" height="471">
-      <div class="w3-center w3-hide-large w3-hide-medium">
-        <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="471">
-      </div>
-    </div>
-  </div>
-</div>
 <!-- The End of Section -->
 
-<!-- The editable Section -->
+<!-- 2nd Section -- The editable Section------------------------------------------------------------------ -->
 <div class="w3-padding-64 w3-light-grey">
   <div class="w3-row-padding">
-    <div class="w3-col l8 m6">
+    <div class="w3-col 14 m8">
 
-      <h1 class="w3-jumbo"><b>The App</b></h1> <!-- Place the header here-->
-      <h1 class="w3-xxxlarge w3-text-green"><b>Why buy it?</b></h1> <!-- Place the sub-header here-->
+      <h1 class="w3-jumbo"><b>Wild Pigs</b></h1> <!-- Place the header here-->
+      <h1 class="w3-xxxlarge w3-text-green"><b>One the most adaptive pests</b></h1> <!-- Place the sub-header here-->
 
       <!-- Content in here-->
-      <p><span class="w3-xlarge">Take photos like a pro.</span> You should buy this app because Blake Zahra</p>
+      <p><span class="w3-xlarge">Use it like a pro.</span> Best way to enforce democracy</p>
     </div>
         <!-- Content end here-->
 
 
     <!-- Place the image here twice-->
-    <div class="w3-col l4 m6">
-      <img src="/w3images/img_app.jpg" class="w3-image w3-right w3-hide-small" width="335" height="471">
+    <div class="w3-col l4 m8">
+      <img src="wild-pigs.jpg" class="w3-image w3-right w3-hide-small" width="795" height="425"><!--width="335" height="471" -->
       <div class="w3-center w3-hide-large w3-hide-medium">
-        <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="471">
+        <img src="wild-pigs.jpg" class="w3-image w3-margin-top" width="335" height="471">
       </div>
     </div>
   </div>
 </div>
 <!-- The End of Section -->
 
-<!-- The editable Section -->
+<!-- 3rd Section -- The editable Section------------------------------------------------------------------ -->
 <div class="w3-padding-64 w3-white">
   <div class="w3-row-padding">
-    <div class="w3-col l8 m6">
+    <div class="w3-col.s6 14 m8">
 
-      <h1 class="w3-jumbo"><b>The App</b></h1> <!-- Place the header here-->
-      <h1 class="w3-xxxlarge w3-text-green"><b>Why buy it?</b></h1> <!-- Place the sub-header here-->
+      <h1 class="w3-jumbo"><b>Wild Pigs of Fukushima</b></h1> <!-- Place the header here-->
+      <h1 class="w3-xxxlarge w3-text-green"><b>Surburban Pests</b></h1> <!-- Place the sub-header here-->
 
       <!-- Content in here-->
-      <p><span class="w3-xlarge">Take photos like a pro.</span> You should buy this app because Blake Zahra</p>
-    </div>
-        <!-- Content end here-->
-
-
-    <!-- Place the image here twice-->
-    <div class="w3-col l4 m6">
-      <img src="/w3images/img_app.jpg" class="w3-image w3-right w3-hide-small" width="335" height="471">
-      <div class="w3-center w3-hide-large w3-hide-medium">
-        <img src="/w3images/img_app.jpg" class="w3-image w3-margin-top" width="335" height="471">
+      <div style=width:inherit; class="w3-center vid-container">
+      <iframe width=100% height=100% src="https://www.youtube.com/embed/1FpnZ3ggUq8" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
+        <!-- Content end here-->
   </div>
 </div>
 <!-- The End of Section -->
@@ -136,15 +128,15 @@ img {margin-bottom: -8px;}
 
 <!-- Footer -->
 <footer class="w3-container w3-padding-32 w3-light-grey w3-center w3-xlarge">
-  <div class="w3-section">
+  <!--<div class="w3-section">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>
     <i class="fa fa-instagram w3-hover-opacity"></i>
     <i class="fa fa-snapchat w3-hover-opacity"></i>
     <i class="fa fa-pinterest-p w3-hover-opacity"></i>
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-  <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  </div> -->
+  <p class="w3-medium">Powered by <a href="https://cloud.google.com/" target="_blank" class="w3-hover-text-green">Google Cloud Platform</a></p>
 </footer>
 
 <script>
