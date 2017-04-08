@@ -14,7 +14,6 @@ img {margin-bottom: -8px;}
 </style>
 <body class="w3-content w3-black" style="max-width:1500px;">
 
-
 <!-- Header with Slideshow -->
 <header class="w3-display-container w3-center">
   <div style=width:inherit; class="mySlides w3-animate-opacity">
