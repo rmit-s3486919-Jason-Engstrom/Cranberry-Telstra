@@ -1,0 +1,7 @@
+https://www.sparkfun.com/products/12009
+
+jaycar
+https://www.jaycar.com.au/arduino-compatible-logic-level-converter-module/p/XC4486
+
+instructions
+http://robotshop.com/letsmakerobots/running-both-5v-and-33v-devices-i2c
