@@ -89,6 +89,3 @@ void loop()   /****** LOOP: RUNS CONSTANTLY ******/
 /*-----( Declare User-written Functions )-----*/
 
 //None yet
-//*********( THE END )***********
-
-

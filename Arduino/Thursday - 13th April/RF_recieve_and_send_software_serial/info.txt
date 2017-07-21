@@ -1,0 +1,4 @@
+On the genuino connect 
+virtual Rx to virtual Tx of other ardunio
+virtual Tx to virtual Rx of other ardunio/// these are defined in this line:
+SoftwareSerial mySerial(30, 31); // RX, TX

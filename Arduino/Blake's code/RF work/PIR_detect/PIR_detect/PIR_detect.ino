@@ -27,5 +27,3 @@ void loop()
     Serial.println("0");
     }
   // put your main code here, to run repeatedly:
-
-}

@@ -143,5 +143,3 @@ void Init_ADXL345(byte range)
  
   Wire.endTransmission();
 }
-
-
