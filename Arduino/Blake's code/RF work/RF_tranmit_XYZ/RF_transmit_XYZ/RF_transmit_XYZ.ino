@@ -163,4 +163,3 @@ void Init_ADXL345(byte range)
 
 
 //*********( THE END )***********
-

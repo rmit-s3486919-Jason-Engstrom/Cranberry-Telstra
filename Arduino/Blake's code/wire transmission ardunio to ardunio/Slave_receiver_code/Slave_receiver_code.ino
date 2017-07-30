@@ -31,4 +31,3 @@ void receiveEvent(int howMany) {
     Serial.print(c);         // print the character
   }
   Serial.println("");  
-}

@@ -23,4 +23,3 @@ void loop()
   //Wire.write(x);              // sends one byte
   Wire.endTransmission();    // stop transmitting
   delay(500);
-}
