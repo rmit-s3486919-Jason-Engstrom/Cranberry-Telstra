@@ -1,0 +1,1 @@
+gcloud app deploy telstragit/app.yaml --project=cranberry-telstra
