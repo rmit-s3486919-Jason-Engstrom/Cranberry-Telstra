@@ -15,10 +15,10 @@ import RPi.GPIO as GPIO
 import time
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)
+GPIO.setup(11, GPIO.IN)	#pin 11 not GPIO 11
 
 #Unit details
-device = " slave1 "
+device = " slave1 "	#stick to the naming convention, look into using the MAC addresses
 lat= "3000.000 "
 lon= "3000.000 "
 #timestamp setup
@@ -47,7 +47,7 @@ while True:
         BaseStringi= 'raspistill -o "/home/pi/Design3_code/SENDER_CODE/'
         ImgName=st +'.jpg"'
         capString= BaseStringi + ImgName
-        os.system(capString)
+        os.system(capString)	#Use Command Feedback to determine when it is complete
         time.sleep(8)
         #copy file
         BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Design3_code/SENDER_CODE/'
