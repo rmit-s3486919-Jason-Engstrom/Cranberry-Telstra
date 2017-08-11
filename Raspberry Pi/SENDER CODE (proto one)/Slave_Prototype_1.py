@@ -31,8 +31,23 @@ while True:
         #Time stamp creation
         ts= time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        #capture image
+        BaseStringi= 'raspistill -o "/home/pi/Design3_code/SENDER_CODE/'
+        ImgName=st + device+'.jpg'
+        ImgName_t=ImgName+'"'
+        capString= BaseStringi + ImgName_t
+        os.system(capString)
+        time.sleep(8)
+        #copy file
+        BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Design3_code/SENDER_CODE/'
+        EndString_s=' pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder'
+        Complete_String=BaseString_s +ImgName_t+EndString_s
+        os.system(Complete_String)
+        time.sleep(6)
+        #os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
+        
         #Message creation
-        MESSAGE = st + device + lat + lon
+        MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
         #UDP transmission
         print 'UDP target IP:', UDP_IP
         print "UDP target port:", UDP_PORT
@@ -42,19 +57,5 @@ while True:
                      socket.SOCK_DGRAM) # UDP
         sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
         time.sleep(1)
-        
-        #capture image
-        BaseStringi= 'raspistill -o "/home/pi/Design3_code/SENDER_CODE/'
-        ImgName=st +'.jpg"'
-        capString= BaseStringi + ImgName
-        os.system(capString)
-        time.sleep(8)
-        #copy file
-        BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Design3_code/SENDER_CODE/'
-        EndString_s=' pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder'
-        Complete_String=BaseString_s +ImgName+EndString_s
-        os.system(Complete_String)
-        time.sleep(8)
-        #os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
         
 
