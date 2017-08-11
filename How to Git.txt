@@ -1,0 +1,12 @@
+What to do when you want to access your code on Git when you boot up:
+1. "git status"
+2. "git pull"
+
+
+What to do when you want to add your own code or editted code:
+1. "git add .""
+2. "git commit -m "*Insert message here*""
+3. "git push"
+
+
+DO NOT PUSH EXE FILES!!! FOR THE LOVE OF GOD!!!
