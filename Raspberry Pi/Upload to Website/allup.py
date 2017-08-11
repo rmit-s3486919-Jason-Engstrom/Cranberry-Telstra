@@ -14,19 +14,17 @@ while 1:
         line = file.readline()															#continually reads new lines. If the text file has not been updated it just repeats
 	if line != "":
                 print line
-		ts = line.split("\t", 1)													#splits TIMESTAMP from the rest of the data with ta as delimiter
-		entrys = ts[1].split(" ",5)													#splits the other data values apart with space as delimiter
-		print ts
+		entrys = line.split("|", 5)													#splits TIMESTAMP from the rest of the data with ta as delimiter
 		print entrys
 
 #Checks that received data is of the right format, and assigns it to other variables 
 
 		if len(entrys) == 4:
 			dvnm = entrys[0]
-			tm = ts[0]
-			x = float(entrys[1])
-			y = float(entrys[2])
-			tmp = entrys[3].split("\r", 1)											#Removes the \r\n from the end of the line
+			tm = entrys[1]
+			x = float(entrys[2])
+			y = float(entrys[3])
+			tmp = entrys[4].split("\r", 1)	#cuts newline off image name										#Removes the \r\n from the end of the line
 			i = tmp[0]
 			print i
 
@@ -42,5 +40,6 @@ while 1:
                 #smooze is a blob, whatever that means
                 blob = bucket.blob(i)
                 blob.upload_from_filename(i)
+                print "image upload complete"
 cursor.close()
 con.close()
