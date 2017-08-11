@@ -33,13 +33,15 @@ while 1:
 			rows = cursor.fetchall()
 			for row in rows:
 				print row
-			con.commit()															#confirms database edits
-                #uploads to bucket gyu, which stands for giant yucky umbrellas
-                store = storage.Client()
-                bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
-                #smooze is a blob, whatever that means
-                blob = bucket.blob(i)
-                blob.upload_from_filename(i)
-                print "image upload complete"
+			con.commit()				#confirms database edits
+                        
+                        print "test"
+                        #uploads to bucket gyu, which stands for giant yucky umbrellas
+                        store = storage.Client()
+                        bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
+                        print "test2"
+                        blob = bucket.blob(i)
+                        blob.upload_from_filename(i)
+                        print "image upload complete"
 cursor.close()
 con.close()
