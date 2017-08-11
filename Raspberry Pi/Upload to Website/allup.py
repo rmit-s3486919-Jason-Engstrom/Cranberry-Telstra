@@ -13,6 +13,7 @@ file = open("log.txt", "r")														#test.txt is continually updated by the
 while 1:
         line = file.readline()															#continually reads new lines. If the text file has not been updated it just repeats
 	if line != "":
+                line.rstrip()
                 print line
 		entrys = line.split("|", 5)													#splits TIMESTAMP from the rest of the data with ta as delimiter
 		print entrys
@@ -24,8 +25,7 @@ while 1:
 			tm = entrys[1]
 			x = float(entrys[2])
 			y = float(entrys[3])
-			tmp = entrys[4].split("\r", 1)	#cuts newline off image name										#Removes the \r\n from the end of the line
-			i = tmp[0]
+			i = entrys[4]
 			print i
 
 			cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i))	#adds data into new entry on table
