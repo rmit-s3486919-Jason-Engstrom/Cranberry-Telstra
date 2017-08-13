@@ -18,8 +18,9 @@
   img {margin-bottom: -8px;}
   .mySlides {display: none;}
   #map {
-          height:450px;   
+          height:450px;
         }
+        
     table, th, td {
       border: 1px;
     }
@@ -125,14 +126,14 @@
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAHOq3rbK1N-LM0-s0Q7p1SM0t7qjBImzs
               &q=Melbourne+Victoria" allowfullscreen>
           </iframe>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
   -- The End of Section -->
 
   <!--Hot Mapping Action!!!!!!!!!!!!!!!!-->
-  <?php   
+  <?php
     $dsn = getenv('MYSQL_DSN');
     $user = getenv('MYSQL_USER');
     $password = getenv('MYSQL_PASSWORD');
@@ -147,15 +148,15 @@
     // }
   ?>
 <!--------------------------------------------------------------------------------------------------------- -->
-  <div class="parallax1"></div>
+  <div class="w3-showdesk parallax1"></div>
 <!--------------------------------------------------------------------------------------------------------- -->
   <div class="w3-padding-32 w3-light-grey">
     <div class="w3-row-padding">
       <div class="w3-col l12 m12">
-        
+
         <!-- --h1 class="w3-showdesk w3-xxxlarge w3-text-center"><b>Predator</b></h1-- --> <!-- Place the header here-->
         <!-- --h1 class="w3-showmob w3-xlarge w3-text-center"><b>Predator</b></h1-- --> <!-- Place the header here-->
-        
+
         <center><img src="Predator_Logo-1.png" class="w3-image" width="50%" height="100%"></center>
 
         <h1 class="w3-showdesk w3-xxlarge w3-text-green w3-text-center"><b>Pest Surveillance System for the Public</b></h1> <!-- Place the sub-header here-->
@@ -168,7 +169,7 @@
     </div>
   </div>
 <!------------------------------------------------------------------------------------------------------------>
-  <div class="parallax1"></div>
+  <div class="w3-showdesk parallax1"></div>
 <!--------------------------------------------------------------------------------------------------------- -->
   <div class="w3-padding-32">
     <div class="w3-row-padding">
@@ -178,7 +179,7 @@
 
         <h1 class="w3-showdesk w3-xxlarge w3-text-green w3-text-center"><b>Pest Activity</b></h1>
         <h1 class="w3-showmob w3-large w3-text-green w3-text-center"><b>Pest Activity</b></h1>
-        
+
         <p class="w3-showdesk w3-text-center">Location of all documented locations of pests, detected using the Predator system</p>
          <p class="w3-showmob w3-justify">Location of all documented locations of pests, detected using the Predator system</p>
 
@@ -190,7 +191,7 @@
                 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
 
                 var map, heatmap;
-              // var latlng = [<?php 
+              // var latlng = [<?php
                       // while($row = $results->fetch())
                       // {
                         // if ($count != 0)
@@ -218,7 +219,7 @@
 
                 // Heatmap data: 500 Points
                 function getPoints() {
-                  return [<?php 
+                  return [<?php
                     while($row = $results->fetch())
                     {
                       if ($count != 0)
@@ -250,7 +251,7 @@
           <!-- Content end here-->
         <p class="w3-justify">Predator will monitor the surrounding area using an array of Detection Units. Once it has detected the presence of an intruding pest, the Detection Unit will update it's location and place the whereabouts online!</p>
 
-        
+
    <div class="w3-padding-small">
       <div class="w3-row-padding">
         <div class="w3-col-con-1">
@@ -262,7 +263,7 @@
         <di class="w3-col-con-2">
                     <img src="Stage 1-2-01.jpg" class="w3-image w3-showdesk" width="100%" height="100%">
         </div>
-        
+
         <div class="w3-showmob w3-text-center">
           <h1 class="w3-large w3-text-green"><b>Pest in the Area?</b></h1>
           <p>The Detection Unit will detect for a presence of an intruding pest</p>
@@ -270,7 +271,7 @@
         </div>
 
       </div>
-    </div>        
+    </div>
 
 
    <div class="w3-padding-small">
@@ -289,12 +290,12 @@
           <div class="w3-showmob w3-text-center">
             <h1 class="w3-large w3-text-green"><b>Message the Predator Access Point</b></h1>
             <p>Location and an image of the pest is sent to the Predator Access Point</p>
-            <img src="Stage 2-2-01_.jpg" class="w3-image" width="100%" height="100%">            
-          </div>          
+            <img src="Stage 2-2-01_.jpg" class="w3-image" width="100%" height="100%">
+          </div>
       </div>
-    </div>        
+    </div>
 
- 
+
    <div class="w3-padding-small">
       <div class="w3-row-padding">
         <div class="w3-col-con-1">
@@ -312,7 +313,7 @@
           <img src="Stage 3-2-01.jpg" class="w3-image" width="100%" height="100%">
         </div>
       </div>
-    </div>        
+    </div>
 
 
    <div class="w3-padding-small">
@@ -325,7 +326,7 @@
         <div class="w3-col-con-2">
           <div class="w3-center1 w3-showdesk">
             <h1 class="w3-xxlarge w3-text-green"><b>Access from the Website</b></h1>
-            <p>Data from the database is displayed on the homepage</p>        
+            <p>Data from the database is displayed on the homepage</p>
           </div>
         </div>
           <div class="w3-showmob w3-text-center">
@@ -335,7 +336,7 @@
           </div>
       </div>
     </div>
-        
+
    <div class="w3-padding-small">
       <div class="w3-row-padding">
         <div class="w3-col-con-1">
@@ -359,7 +360,7 @@
     <div class="w3-row-padding">
       <div class="w3-col l12 m12 w3-text-center">
         <h1 class="w3-xxlarge w3-text-green w3-text-center"><b>This All Looks Like This</b></h1>
-        <center><img src="System Diagram_3-01.png" class="w3-image w3-right" max-width="100%" height="100%"></center>      
+        <center><img src="System Diagram_3-01.png" class="w3-image w3-right" max-width="100%" height="100%"></center>
       </div>
     </div>
   </div---->
@@ -397,10 +398,10 @@
       <div class="w3-col.s6 14 m8">
 
         <h1 class="w3-showdesk w3-xxxlarge"><b>Wild Pigs of Fukushima</b></h1>
-        <h1 class="w3-showmob w3-xlarge"><b>Wild Pigs of Fukushima</b></h1> 
+        <h1 class="w3-showmob w3-xlarge"><b>Wild Pigs of Fukushima</b></h1>
 
         <h1 class="w3-showdesk w3-xxlarge w3-text-green"><b>Surburban Pests</b></h1>
-        <h1 class="w3-showmob w3-large w3-text-green"><b>Surburban Pests</b></h1> 
+        <h1 class="w3-showmob w3-large w3-text-green"><b>Surburban Pests</b></h1>
 
         <div style=width:inherit; class="w3-center vid-container">
         <iframe width=100% height=100% src="https://www.youtube.com/embed/1FpnZ3ggUq8" frameborder="0" allowfullscreen></iframe>
@@ -429,15 +430,15 @@
     </div>
   </div>
   <!-- Content end here-->
-    
+
   <!-- Meet the Team-->
   <div class="w3-padding-small w3-kight-grey">
     <div class="w3-row-padding">
       <div class="w3-col m12">
-        
+
         <h1 class="w3-showdesk w3-xxxlarge w3-text-center"><b>Meet the Team</b></h1>
         <h1 class="w3-showmob w3-xlarge w3-text-center"><b>Meet the Team</b></h1>
-        
+
         <div class="w3-showdesk">
           <table style="width:100%">
             <tr>
@@ -467,7 +468,7 @@
             </tr>
             <tr>
               <th>
-                <img src="http://cranberry-telstra.appspot.com/Photo-23.jpg" class="w3-padding-16 w3-image w3-left" width="35%" height="35%"> 
+                <img src="http://cranberry-telstra.appspot.com/Photo-23.jpg" class="w3-padding-16 w3-image w3-left" width="35%" height="35%">
               </th>
               <th>
                 <p class="nowrap">Blake Zahra</p>
@@ -497,8 +498,8 @@
     </div>
   </div>
   <!-- Content end here-->
-    
-    
+
+
   <!-- Contact----------------------------------------------------------------------------------------------- -->
   <div class="w3-padding-small">
     <div class="w3-row-padding">
@@ -573,12 +574,12 @@
   function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) {slideIndex = 1}    
+    if (n > x.length) {slideIndex = 1}
     if (n < 1) {slideIndex = x.length}
     for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
+       x[i].style.display = "none";
     }
-    x[slideIndex-1].style.display = "block";  
+    x[slideIndex-1].style.display = "block";
   }
   </script>
 
