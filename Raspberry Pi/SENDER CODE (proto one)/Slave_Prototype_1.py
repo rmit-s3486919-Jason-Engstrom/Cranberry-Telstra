@@ -18,9 +18,9 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)
 
 #Unit details
-device = " slave1 "
-lat= "3000.000 "
-lon= "3000.000 "
+device = "slave1"
+lat= "3000.000"
+lon= "3000.000"
 #timestamp setup
 import datetime
 
