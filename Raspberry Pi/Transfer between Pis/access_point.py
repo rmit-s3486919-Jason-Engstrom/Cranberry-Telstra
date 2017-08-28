@@ -1,6 +1,6 @@
 import socket
 
-TCP_IP = "192.168.1.1"
+TCP_IP = '' #since its blank it should mean all available interfaces
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
