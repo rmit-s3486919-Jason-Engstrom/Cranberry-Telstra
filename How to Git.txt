@@ -14,5 +14,5 @@ How to set up GitHub to login automatically
 2. Remove all "{" or "}" and enter "" around your password
 3. Exclude the password if you are concerned about security
 
-Test
+
 DO NOT PUSH EXE FILES!!! FOR THE LOVE OF GOD!!!
