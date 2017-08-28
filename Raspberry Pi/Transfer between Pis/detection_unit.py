@@ -60,7 +60,7 @@ while True:
         sock.send(MESSAGE)
         reply = sock.recv(BUFFER_SIZE)
         print reply
-        s.close()
+        sock.close()
         time.sleep(1)
         
 
