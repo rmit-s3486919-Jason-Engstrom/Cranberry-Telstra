@@ -20,9 +20,10 @@ while 1:
 
 #Checks that received data is of the right format, and assigns it to other variables 
 
-		if len(entrys) == 4:
-			dvnm = entrys[0]
-			tm = entrys[1]
+		if len(entrys) == 5:
+                        print "entrys is 5 long" 
+			dvnm = entrys[1]
+			tm = entrys[0]
 			x = float(entrys[2])
 			y = float(entrys[3])
 			i = entrys[4]
