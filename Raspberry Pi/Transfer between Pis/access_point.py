@@ -10,7 +10,7 @@ sock.listen(1)
 
 c, a = sock.accept()
 print a
-while true:
+while True:
     data = c.recv(BUFFER_SIZE)
     if not data:
         print "no data. SAD"
