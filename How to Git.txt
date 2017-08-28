@@ -17,4 +17,4 @@ How to set up GitHub to login automatically
 
 DO NOT PUSH EXE FILES!!! FOR THE LOVE OF GOD!!!
 
-Test
+Test from atom
