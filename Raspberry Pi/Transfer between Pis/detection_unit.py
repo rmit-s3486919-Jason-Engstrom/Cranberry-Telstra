@@ -5,7 +5,7 @@ GND to GND
 """
 #scp setup
 import os
-#UDP setup
+#TCP setup
 import socket
 
 TCP_IP = "192.168.1.1"
@@ -50,9 +50,9 @@ while True:
         
         #Message creation
         MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
-        #UDP transmission
-        print 'UDP target IP:', UDP_IP
-        print "UDP target port:", UDP_PORT
+        #TCP transmission
+        print 'TCP target IP:', TCP_IP
+        print "TCP target port:", TCP_PORT
         print "message:", MESSAGE
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
