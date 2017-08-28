@@ -9,4 +9,10 @@ What to do when you want to add your own code or editted code:
 3. "git push"
 
 
+How to set up GitHub to login automatically
+1. git config remote.origin.url https://{USERNAME}:{PASSWORD}@github.com/{USERNAME}/{REPONAME}.git
+2. Remove all "{" or "}" and enter "" around your password
+3. Exclude the password if you are concerned about security
+
+
 DO NOT PUSH EXE FILES!!! FOR THE LOVE OF GOD!!!
