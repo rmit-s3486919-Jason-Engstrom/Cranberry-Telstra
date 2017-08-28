@@ -13,7 +13,7 @@ print a
 while True:
     data = c.recv(BUFFER_SIZE)
     if not data:
-        print "no data. SAD"
+##        print "no data. SAD"
     else:
         print "data!"
         print data
