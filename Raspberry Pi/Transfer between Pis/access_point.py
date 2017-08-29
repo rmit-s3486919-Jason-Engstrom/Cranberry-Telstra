@@ -8,15 +8,22 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((TCP_IP,TCP_PORT))
 sock.listen(1)
 
-c, a = sock.accept()
+newSock, a = sock.accept()#newSock is a new socket for this connection #a is address ??? which ??? DOGFOOD
 print a
 while True:
-    data = c.recv(BUFFER_SIZE)
+    data = newSock.recv(BUFFER_SIZE)
     if not data:
-        break
-##        print "no data. SAD"
+        continue
     else:
         print "data!"
         print data
-        c.send("Message Received Loud and Clear Over and Out")
-c.close()
+        newSock.send("Message Received Loud and Clear Over and Out")
+        #Create/append to log file
+        f = open('log.txt','a')
+        print f
+        f.write(data)
+        f.write('\n')
+        f.close()
+        #I should port upload code here DOGFOOD
+print "Why are you here. You shouldn't be here"
+newSock.close()
