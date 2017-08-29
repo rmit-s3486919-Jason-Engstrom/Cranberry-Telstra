@@ -57,7 +57,7 @@ while True:
         #uploads to bucket gyu, which stands for giant yucky umbrellas
         print "Beginning Image Upload"
         blob = bucket.blob(i)
-        blob.upload_from_filename("/home/pi/Pictures" + i)
+        blob.upload_from_filename("/home/pi/Pictures/" + i)
         print "Image Upload Complete"
         newSock.close()
 
