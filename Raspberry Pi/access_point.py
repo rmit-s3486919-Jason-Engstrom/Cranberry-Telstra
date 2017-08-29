@@ -32,7 +32,7 @@ while True:
         newSock.send("Message Received Loud and Clear Over and Out")
         
         #Create/append to log file
-        f = open('log.txt','a')
+        f = open('dbupload.log','a')
         f.write(data)
         f.write('\n')
 
