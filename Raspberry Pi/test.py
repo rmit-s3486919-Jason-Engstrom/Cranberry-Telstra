@@ -24,9 +24,11 @@ print 'TCP target IP:', TCP_IP
 print "TCP target port:", TCP_PORT
 print "message:", MESSAGE
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect((TCP_IP,TCP_PORT))
-sock.send(MESSAGE)
-reply = sock.recv(BUFFER_SIZE)
-print reply
-sock.close()
+while True:
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((TCP_IP,TCP_PORT))
+    sock.send(MESSAGE)
+    reply = sock.recv(BUFFER_SIZE)
+    print reply
+    time.sleep(3)
+    sock.close()
