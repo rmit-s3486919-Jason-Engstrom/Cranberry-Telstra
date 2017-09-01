@@ -12,7 +12,7 @@ BUFFER_SIZE = 1024
 device = "testing"
 lat= "3000.000"
 lon= "3000.000"
-ImgName = " 33 three 33 .jpg"
+ImgName = " 11 one 11 .jpg"
 #Time stamp creation
 ts= time.time()
 st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')

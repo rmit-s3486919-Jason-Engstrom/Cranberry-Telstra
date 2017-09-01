@@ -30,6 +30,7 @@ while True:
     else:
         print data
         newSock.send("Message Received Loud and Clear Over and Out")
+        newSock.close()
         
         #Create/append to log file
         f = open('dbupload.log','a')
@@ -44,12 +45,7 @@ while True:
         x = float(entrys[2])
         y = float(entrys[3])
         i = entrys[4]
-        
-        #########################
-        ##   UPDATE DATABASE   ##
-        #########################
-        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i))	#adds data into new entry on table
-        con.commit()				#confirms database edits
+        i_no_spaces = i.replace(" ","_")
         
         ######################
         ##   UPLOAD IMAGE   ##
@@ -58,7 +54,15 @@ while True:
         print "Beginning Image Upload"
         blob = bucket.blob(i)
         blob.upload_from_filename("/home/pi/Pictures/" + i)
+        blob.make_public()
         print "Image Upload Complete"
-        newSock.close()
+        
+        #########################
+        ##   UPDATE DATABASE   ##
+        #########################
+        i_url = blob.public_url()
+        print i_url
+        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
+        con.commit()				#confirms database edits
 
 print "How did you get outside the while True?\nYou really shouldn't be here"
