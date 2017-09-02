@@ -44,8 +44,8 @@ while True:
         dvnm = entrys[1]
         x = float(entrys[2])
         y = float(entrys[3])
-        i = entrys[4]
-        i_no_spaces = i.replace(" ","_")
+        i_spaces = entrys[4]
+        i = i_spaces.replace(" ","_")
         
         ######################
         ##   UPLOAD IMAGE   ##
@@ -60,7 +60,7 @@ while True:
         #########################
         ##   UPDATE DATABASE   ##
         #########################
-        i_url = blob.public_url()
+        i_url = blob.public_url
         print i_url
         cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
         con.commit()				#confirms database edits
