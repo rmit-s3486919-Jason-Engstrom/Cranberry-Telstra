@@ -38,7 +38,7 @@ while True:
         ##           CAPTURE  IMAGE           ##
         ########################################
         
-        BaseStringi= 'raspistill -o "/home/pi/Pictures/'
+        BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
         ImgName=st + ' ' + device+'.jpg'
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
