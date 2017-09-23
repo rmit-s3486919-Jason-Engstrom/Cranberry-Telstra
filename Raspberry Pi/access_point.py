@@ -3,6 +3,8 @@ import MySQLdb as mdb
 import fileinput
 import random
 import socket
+import requests
+
 
 TCP_IP = '' #since its blank it should mean all available interfaces
 TCP_PORT = 5005
@@ -47,22 +49,32 @@ while True:
         i_spaces = entrys[4]
         i = i_spaces.replace(" ","_")
         
-        ######################
-        ##   UPLOAD IMAGE   ##
-        ######################
-        #uploads to bucket gyu, which stands for giant yucky umbrellas
-        print "Beginning Image Upload"
-        blob = bucket.blob(i)
-        blob.upload_from_filename("/home/pi/Pictures/" + i)
-        blob.make_public()
-        print "Image Upload Complete"
-        
-        #########################
-        ##   UPDATE DATABASE   ##
-        #########################
-        i_url = blob.public_url
-        print i_url
-        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
-        con.commit()				#confirms database edits
+        data={'photo': open('/home/pi/Pictures/' + i,'rb'),'name':'hello'}
 
+        try:
+            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
+            print(response.content)
+        except:
+            print('Exception!')
+        
+        
+##        
+##        ######################
+##        ##   UPLOAD IMAGE   ##
+##        ######################
+##        #uploads to bucket gyu, which stands for giant yucky umbrellas
+##        print "Beginning Image Upload"
+##        blob = bucket.blob(i)
+##        blob.upload_from_filename("/home/pi/Pictures/" + i)
+##        blob.make_public()
+##        print "Image Upload Complete"
+##        
+##        #########################
+##        ##   UPDATE DATABASE   ##
+##        #########################
+##        i_url = blob.public_url
+##        print i_url
+##        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
+##        con.commit()				#confirms database edits
+##
 print "How did you get outside the while True?\nYou really shouldn't be here"
