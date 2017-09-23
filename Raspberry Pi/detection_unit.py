@@ -33,22 +33,33 @@ while True:
         #Time stamp creation
         ts= time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-        #capture image
+
+        ########################################
+        ##           CAPTURE  IMAGE           ##
+        ########################################
+        
         BaseStringi= 'raspistill -o "/home/pi/Design3_code/SENDER_CODE/'
         ImgName=st + ' ' + device+'.jpg'
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
-        os.system(capString)
-        #time.sleep(1)#DOGFOOD
-        #copy file
+        os.system(capString)#uses capString as a command for the OS to run
+        
+        ########################################
+        ##     SEND IMAGE TO ACCESS POINT     ##
+        ########################################
+        
+        #Uses SSH
         BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Design3_code/SENDER_CODE/'
         EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
         Complete_String=BaseString_s +ImgName_t+EndString_s
         os.system(Complete_String)
-        #time.sleep(1)#DOGFOOD
         #os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
         
-        #Message creation
+        ########################################
+        ##            SEND MESSAGE            ##
+        ########################################
+        
+        #Uses TCP
         MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
         #TCP transmission
         print 'TCP target IP:', TCP_IP
