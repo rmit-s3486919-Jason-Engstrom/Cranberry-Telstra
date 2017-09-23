@@ -19,12 +19,14 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)
 
+from uuid import getnode as get_mac
+
 #Unit details
-device = "slave1"
 lat= "3000.000"
 lon= "3000.000"
 #timestamp setup
 import datetime
+device = str(get_mac())
 
 #Forever loop
 while True:
