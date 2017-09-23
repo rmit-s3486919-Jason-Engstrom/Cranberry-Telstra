@@ -38,7 +38,7 @@ while True:
         ##           CAPTURE  IMAGE           ##
         ########################################
         
-        BaseStringi= 'raspistill -o "/home/pi/Design3_code/SENDER_CODE/'
+        BaseStringi= 'raspistill -o "/home/pi/Pictures/'
         ImgName=st + ' ' + device+'.jpg'
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
@@ -49,7 +49,7 @@ while True:
         ########################################
         
         #Uses SSH
-        BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Design3_code/SENDER_CODE/'
+        BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
         EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
         Complete_String=BaseString_s +ImgName_t+EndString_s
         os.system(Complete_String)
