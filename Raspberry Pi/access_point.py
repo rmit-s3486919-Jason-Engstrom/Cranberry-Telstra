@@ -49,7 +49,7 @@ while True:
         i_spaces = entrys[4]
         i = i_spaces.replace(" ","_")
         
-        data={'photo': open('/home/pi/Pictures/' + i,'rb'),'name':'hello'}
+        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
 
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
@@ -58,14 +58,16 @@ while True:
             print('Exception!')
         
         
-##        
-##        ######################
-##        ##   UPLOAD IMAGE   ##
-##        ######################
-##        #uploads to bucket gyu, which stands for giant yucky umbrellas
+        
+        ######################
+        ##   UPLOAD IMAGE   ##
+        ######################
+        #uploads to bucket gyu, which stands for giant yucky umbrellas
+        #uploads to bucket gyu, which stands for generous yeti unions
+
 ##        print "Beginning Image Upload"
 ##        blob = bucket.blob(i)
-##        blob.upload_from_filename("/home/pi/Pictures/" + i)
+##        blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
 ##        blob.make_public()
 ##        print "Image Upload Complete"
 ##        
@@ -76,5 +78,5 @@ while True:
 ##        print i_url
 ##        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
 ##        con.commit()				#confirms database edits
-##
+
 print "How did you get outside the while True?\nYou really shouldn't be here"
