@@ -40,7 +40,7 @@ while True:
         f.write('\n')
 
         #Tokenise Data
-        entrys = data.split("|", 5)
+        entrys = data.split("|", 6)
         #DOGFOOD should check it's in the correct format at this point
         ts = entrys[0]
         mac = entrys[1]
