@@ -79,7 +79,9 @@ while True:
         i_url = blob.public_url
         print i_url
         #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s)",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
+        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
+        cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s);",(ts,mac,i_url))	#adds data into new entry on table
+
         con.commit()				#confirms database edits
 
 print "How did you get outside the while True?\nYou really shouldn't be here"
