@@ -26,7 +26,7 @@ longitude = "144.957996168"
 latitude = "-37.804663448"
 mac = str(get_mac())
 deviceName = "detector 1"
-user_id = 1
+user_id = "1"
 
 #timestamp setup
 import datetime
