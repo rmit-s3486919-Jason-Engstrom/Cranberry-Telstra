@@ -86,7 +86,7 @@ while True:
 
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
-            print(response.content)
+            print("Vision API call was successful and something should have been returned")
         except:
             print('Exception!')
 
