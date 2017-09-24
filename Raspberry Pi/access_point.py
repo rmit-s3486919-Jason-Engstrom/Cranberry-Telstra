@@ -33,7 +33,7 @@ while True:
         print data
         newSock.send("Message Received Loud and Clear Over and Out")
         newSock.close()
-        
+
         #Create/append to log file
         f = open('dbupload.log','a')
         f.write(data)
@@ -42,13 +42,15 @@ while True:
         #Tokenise Data
         entrys = data.split("|", 5)
         #DOGFOOD should check it's in the correct format at this point
-        tm = entrys[0]
-        dvnm = entrys[1]
-        x = float(entrys[2])
-        y = float(entrys[3])
-        i_spaces = entrys[4]
+        ts = entrys[0]
+        mac = entrys[1]
+        deviceName = float(entrys[2])
+        longitude = float(entrys[3])
+        latitude = float(entrys[4])
+        user_id = entrys[5]
+        i_spaces = entrys[6]
         i = i_spaces.replace(" ","_")
-        
+
         data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
 
         try:
@@ -56,9 +58,9 @@ while True:
             print(response.content)
         except:
             print('Exception!')
-        
-        
-        
+
+
+
         ######################
         ##   UPLOAD IMAGE   ##
         ######################
@@ -70,13 +72,13 @@ while True:
         blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
         blob.make_public()
         print "Image Upload Complete"
-        
+
         #########################
         ##   UPDATE DATABASE   ##
         #########################
         i_url = blob.public_url
         print i_url
-        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(dvnm,tm,x,y,i_url))	#adds data into new entry on table
+        cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
         con.commit()				#confirms database edits
 
 print "How did you get outside the while True?\nYou really shouldn't be here"

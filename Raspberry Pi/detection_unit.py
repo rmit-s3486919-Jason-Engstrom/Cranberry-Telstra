@@ -22,11 +22,14 @@ GPIO.setup(11, GPIO.IN)
 from uuid import getnode as get_mac
 
 #Unit details
-lat= "3000.000"
-lon= "3000.000"
+longitude = "144.957996168"
+latitude = "-37.804663448"
+mac = str(get_mac())
+deviceName = "detector 1"
+user_id = "Mr4D"
+
 #timestamp setup
 import datetime
-device = str(get_mac())
 
 #Forever loop
 while True:
@@ -39,30 +42,34 @@ while True:
         ########################################
         ##           CAPTURE  IMAGE           ##
         ########################################
-        
+
         BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
-        ImgName=st + ' ' + device+'.jpg'
+        ImgName=st + ' ' + mac+'.jpg'
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
         os.system(capString)#uses capString as a command for the OS to run
-        
+
         ########################################
         ##     SEND IMAGE TO ACCESS POINT     ##
         ########################################
-        
+
         #Uses SSH
         BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
         EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
         Complete_String=BaseString_s +ImgName_t+EndString_s
         os.system(Complete_String)
         #os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
-        
+
         ########################################
         ##            SEND MESSAGE            ##
         ########################################
-        
+
         #Uses TCP
-        MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
+        # MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
+
+        MESSAGE = st +'|'+ mac +'|'+ deviceName +'|'+ longitude +'|'+ latitude +'|'+ user_id +'|'+ ImgName
+
+
         #TCP transmission
         print 'TCP target IP:', TCP_IP
         print "TCP target port:", TCP_PORT
@@ -75,5 +82,3 @@ while True:
         print reply
         sock.close()
         time.sleep(1)
-        
-
