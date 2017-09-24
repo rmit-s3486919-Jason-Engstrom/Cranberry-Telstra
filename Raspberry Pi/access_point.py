@@ -43,11 +43,11 @@ while True:
         entrys = data.split("|", 6)
         #DOGFOOD should check it's in the correct format at this point
         ts = entrys[0]
-        mac = entrys[1]
+        mac = int(entrys[1])
         deviceName = entrys[2]
         longitude = float(entrys[3])
         latitude = float(entrys[4])
-        user_id = entrys[5]
+        user_id = str(entrys[5])
         i_spaces = entrys[6]
         i = i_spaces.replace(" ","_")
 
@@ -79,7 +79,7 @@ while True:
         i_url = blob.public_url
         print i_url
         #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
+        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %d, %s, %f, %f, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
         cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s);",(ts,mac,i_url))	#adds data into new entry on table
 
         con.commit()				#confirms database edits
