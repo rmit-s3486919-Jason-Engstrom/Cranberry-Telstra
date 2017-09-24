@@ -51,13 +51,7 @@ while True:
         i_spaces = entrys[6]
         i = i_spaces.replace(" ","_")
 
-        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
 
-        try:
-            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
-            print(response.content)
-        except:
-            print('Exception!')
 
 
 
@@ -83,5 +77,17 @@ while True:
         cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s, %s);",(ts,mac,i_url, 0))	#adds data into new entry on table
 
         con.commit()				#confirms database edits
+
+
+        #########################
+        ##   Vision API Stuff  ##
+        #########################
+        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
+
+        try:
+            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
+            print(response.content)
+        except:
+            print('Exception!')
 
 print "How did you get outside the while True?\nYou really shouldn't be here"
