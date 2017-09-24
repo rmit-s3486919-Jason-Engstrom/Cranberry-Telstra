@@ -10,10 +10,17 @@ SELECT detections.id, detections.time
 
 
 
-	        query = "CREATE TABLE " + TABLE_PRODUCTS + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_PRODUCTNAME + " TEXT " +
-                ");";
+
+
+
+
+
+
+
+query = "CREATE TABLE " + TABLE_PRODUCTS + "(" +
+    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+    COLUMN_PRODUCTNAME + " TEXT " +
+    ");";
 
 
 
@@ -21,3 +28,6 @@ CREATE TABLE table_products (
 	id INTEGER PRIMARY KEY AUTOINCREMENT, 
 	product_name TEXT
 	);
+
+
+INSERT INTO test (nm, str) VALUES(193, "visiontest");
