@@ -41,7 +41,7 @@ while True:
         #Time stamp creation
         ts= time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-        print("Sent at: " + st)
+        # print("Sent at: " + str(start_time))
 
         ########################################
         ##           CAPTURE  IMAGE           ##
@@ -89,8 +89,8 @@ while True:
         print reply
         sock.close()
         time_to_receive_reply = start_time - time.time()
-        print("Start time:" + start_time)
-        print("Time to capture image: " + time_to_capture_image)
-        print("Time to recieve reply: " + time_to_receive_reply)
+        print("Start time:" + str(start_time))
+        print("Time to capture image: " + str(time_to_capture_image))
+        print("Time to recieve reply: " + str(time_to_receive_reply))
 
         time.sleep(1)
