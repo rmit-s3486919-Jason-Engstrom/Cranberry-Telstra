@@ -35,9 +35,13 @@ import datetime
 while True:
     Status=GPIO.input(11)
     if Status:
+        #Time measurements
+        start_time = time.time()
+
         #Time stamp creation
         ts= time.time()
         st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        print("Sent at: " + st)
 
         ########################################
         ##           CAPTURE  IMAGE           ##
@@ -48,6 +52,9 @@ while True:
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
         os.system(capString)#uses capString as a command for the OS to run
+
+        #Time measurements
+        time_to_capture_image = start_time - time.time()
 
         ########################################
         ##     SEND IMAGE TO ACCESS POINT     ##
@@ -81,4 +88,9 @@ while True:
         reply = sock.recv(BUFFER_SIZE)
         print reply
         sock.close()
+        time_to_receive_reply = start_time - time.time()
+        print("Start time:" + start_time)
+        print("Time to capture image: " + time_to_capture_image)
+        print("Time to recieve reply: " + time_to_receive_reply)
+
         time.sleep(1)
