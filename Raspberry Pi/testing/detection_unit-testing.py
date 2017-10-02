@@ -52,10 +52,10 @@ for x in range(0,999):
         ########################################
 
         BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
-        if(ImgName == null){
+        if ImgName is none
 	        ImgName=st + ' ' + mac+'.jpg'
 	        ImgName_t=ImgName+'"'
-	    }
+
         capString= BaseStringi + ImgName_t
         os.system(capString)#uses capString as a command for the OS to run
 
@@ -102,7 +102,7 @@ for x in range(0,999):
     		print e.errno
         print reply
         sock.close()
-        
+
         # print(str(x))
         # print(str(start_time))
         # print(str(time_to_capture_image))
