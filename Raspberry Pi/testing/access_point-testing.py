@@ -15,13 +15,13 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((TCP_IP,TCP_PORT))
 sock.listen(1)
 
-#Connect to database
-con = mdb.connect('104.198.234.164', 'root', 'B3_0ur_lord!',  'predator')
-cursor = con.cursor()
+# #Connect to database
+# con = mdb.connect('104.198.234.164', 'root', 'B3_0ur_lord!',  'predator')
+# cursor = con.cursor()
 
-#Connect to storage bucket
-store = storage.Client()
-bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
+# #Connect to storage bucket
+# store = storage.Client()
+# bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
 
 while True:
     newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
@@ -31,25 +31,25 @@ while True:
         continue
     else:
         print data
-        newSock.send("Message Received Loud and Clear Over and Out")
+        newSock.send("Reply")
         newSock.close()
-
-        #Create/append to log file
-        f = open('dbupload.log','a')
-        f.write(data)
-        f.write('\n')
-
-        #Tokenise Data
-        entrys = data.split("|", 6)
-        #DOGFOOD should check it's in the correct format at this point
-        ts = entrys[0]
-        mac = entrys[1]
-        deviceName = entrys[2]
-        longitude = float(entrys[3])
-        latitude = float(entrys[4])
-        user_id = str(entrys[5])
-        i_spaces = entrys[6]
-        i = i_spaces.replace(" ","_")
+        #
+        # #Create/append to log file
+        # f = open('dbupload.log','a')
+        # f.write(data)
+        # f.write('\n')
+        #
+        # #Tokenise Data
+        # entrys = data.split("|", 6)
+        # #DOGFOOD should check it's in the correct format at this point
+        # ts = entrys[0]
+        # mac = entrys[1]
+        # deviceName = entrys[2]
+        # longitude = float(entrys[3])
+        # latitude = float(entrys[4])
+        # user_id = str(entrys[5])
+        # i_spaces = entrys[6]
+        # i = i_spaces.replace(" ","_")
 
 
 
