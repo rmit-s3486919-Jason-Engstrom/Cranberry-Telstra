@@ -1,8 +1,3 @@
-"""
-PIR output pin to GPIO 11 (sixth pin from the top left panel)
-VCC to 5V
-GND to GND
-"""
 #scp setup
 import os
 #TCP setup
@@ -12,23 +7,7 @@ TCP_IP = "192.168.1.1"
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
-#GPIO setup
-import RPi.GPIO as GPIO
 import time
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)
-
-from uuid import getnode as get_mac
-
-#Unit details
-longitude = "144.957996168"
-latitude = "-37.804663448"
-mac = str(get_mac())
-deviceName = "detector 1"
-user_id = "1"
-
-#timestamp setup
 import datetime
 
 ImgName = ""
@@ -39,9 +18,11 @@ bads = 0;
 for x in range(0,999):
 	#Time measurements
 	start_time = time.time()
+
 	########################################
-	##           CAPTURE  IMAGE           ##
+	##          Pointing to image         ##
 	########################################
+
 	img = '2017-10-01 14:10:01 202481594827183.jpg"'
 
 	#Time measurements
@@ -63,7 +44,7 @@ for x in range(0,999):
 	#Uses TCP
 	# MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
 
-	MESSAGE = st +'|'+ mac +'|'+ deviceName +'|'+ longitude +'|'+ latitude +'|'+ user_id +'|'+ ImgName
+	# MESSAGE = st +'|'+ mac +'|'+ deviceName +'|'+ longitude +'|'+ latitude +'|'+ user_id +'|'+ ImgName
 
 
 	#TCP transmission
