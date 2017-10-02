@@ -93,12 +93,12 @@ for x in range(0,999):
         try:
 	        sock.send(MESSAGE)
 	        reply = sock.recv(BUFFER_SIZE)
-	        goods++
+	        goods = goods + 1
 	        time_to_receive_reply = start_time - time.time()
 	        print(str(time_to_receive_reply))
 	    except socket.error, e:
     		# sock.close()
-    		bads++
+    		bads = bads + 1
     		print e.errno
         print reply
         sock.close()
