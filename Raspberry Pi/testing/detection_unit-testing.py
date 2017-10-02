@@ -52,7 +52,7 @@ for x in range(0,999):
         ########################################
 
         BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
-        if ImgName is none
+        if ImgName is none:
 	        ImgName=st + ' ' + mac+'.jpg'
 	        ImgName_t=ImgName+'"'
 
