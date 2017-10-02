@@ -31,7 +31,7 @@ user_id = "1"
 #timestamp setup
 import datetime
 
-ImgName = null
+ImgName = ""
 goods = 0;
 bads = 0;
 
