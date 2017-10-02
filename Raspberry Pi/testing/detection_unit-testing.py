@@ -26,11 +26,11 @@ for x in range(0,999):
 
 
 
-    # BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
-    # ImgName=st + ' ' + mac+'.jpg'
-    ImgName_t='sshpass -p "Pi2017" scp "/home/pi/Pictures/2017-10-01 14:42:25 202481594827184.jpg" pi@192.168.1.1:/home/pi/Pictures'
-    # capString= BaseStringi + ImgName_t
-    # os.system(capString)#uses capString as a command for the OS to run
+	# BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
+	# ImgName=st + ' ' + mac+'.jpg'
+	ImgName_t='sshpass -p "Pi2017" scp "/home/pi/Pictures/2017-10-01 14:42:25 202481594827184.jpg" pi@192.168.1.1:/home/pi/Pictures/'
+	# capString= BaseStringi + ImgName_t
+	# os.system(capString)#uses capString as a command for the OS to run
 
 	#Time measurements
 	########################################
@@ -38,10 +38,10 @@ for x in range(0,999):
 	########################################
 
 	#Uses SSH
-    # BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
-    # EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
-    # Complete_String=BaseString_s +ImgName_t+EndString_s
-    os.system(ImgName_t)
+	# BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
+	# EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
+	# Complete_String=BaseString_s +ImgName_t+EndString_s
+	os.system(ImgName_t)
 	#os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
 
 	########################################
