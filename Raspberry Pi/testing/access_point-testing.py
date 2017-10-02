@@ -25,12 +25,12 @@ sock.listen(1)
 
 while True:
     newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
-    print a
+    # print a
     data = newSock.recv(BUFFER_SIZE)
     if not data:
         continue
     else:
-        print data
+        print "received"
         newSock.send("Reply")
         newSock.close()
         #

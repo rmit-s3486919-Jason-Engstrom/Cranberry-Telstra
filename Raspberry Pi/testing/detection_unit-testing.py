@@ -23,7 +23,14 @@ for x in range(0,999):
 	##          Pointing to image         ##
 	########################################
 
-	img = '2017-10-01 14:10:01 202481594827183.jpg"'
+
+
+
+    # BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
+    # ImgName=st + ' ' + mac+'.jpg'
+    ImgName_t='sshpass -p "Pi2017" scp "/home/pi/Pictures/2017-10-01 14:42:25 202481594827184.jpg" pi@192.168.1.1:/home/pi/Pictures'
+    # capString= BaseStringi + ImgName_t
+    # os.system(capString)#uses capString as a command for the OS to run
 
 	#Time measurements
 	########################################
@@ -31,10 +38,10 @@ for x in range(0,999):
 	########################################
 
 	#Uses SSH
-	BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
-	EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
-	Complete_String=BaseString_s + img+EndString_s
-	os.system(Complete_String)
+    # BaseString_s='sshpass -p "Pi2017" scp "/home/pi/Pictures/'
+    # EndString_s=' pi@192.168.1.1:/home/pi/Pictures'
+    # Complete_String=BaseString_s +ImgName_t+EndString_s
+    os.system(ImgName_t)
 	#os.system("""sshpass -p "Pi2017" scp /home/pi/image1.jpg pi@192.168.1.1:/home/pi/Blake_receive_code/Receive_folder""")
 
 	########################################
@@ -55,7 +62,7 @@ for x in range(0,999):
 	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	sock.connect((TCP_IP,TCP_PORT))
 	try:
-		sock.send(MESSAGE)
+		sock.send("Hello from access point!")
 		reply = sock.recv(BUFFER_SIZE)
 		goods = goods + 1
 		time_to_receive_reply = time.time() - start_time
@@ -64,7 +71,6 @@ for x in range(0,999):
 		# sock.close()
 		bads = bads + 1
 		# print e.errno
-	print reply
 	sock.close()
 
 		# print(str(x))
