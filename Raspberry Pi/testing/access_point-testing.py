@@ -31,7 +31,7 @@ while True:
         continue
     else:
         print data
-        # newSock.send("Message Received Loud and Clear Over and Out")
+        newSock.send("Message Received Loud and Clear Over and Out")
         newSock.close()
 
         #Create/append to log file
