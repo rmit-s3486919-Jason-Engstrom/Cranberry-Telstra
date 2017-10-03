@@ -37,7 +37,7 @@ bads = 0;
 
 #Forever loops
 for x in range(0,999):
-	Status=GPIO.input(11)
+	# Status=GPIO.input(11)
 	if True:
 		#Time measurements
 		start_time = time.time()
