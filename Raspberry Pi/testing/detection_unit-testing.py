@@ -35,7 +35,7 @@ ImgName = ""
 goods = 0;
 bads = 0;
 
-#Forever loop
+#Forever loops
 for x in range(0,999):
 	Status=GPIO.input(11)
 	if True:
