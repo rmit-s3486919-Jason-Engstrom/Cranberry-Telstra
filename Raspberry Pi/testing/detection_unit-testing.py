@@ -50,14 +50,13 @@ for x in range(0,999):
 		########################################
 		##           CAPTURE  IMAGE           ##
 		########################################
-
-		BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
 		if ImgName is "":
+			BaseStringi= 'raspistill -h 1080 -w 1440 -o "/home/pi/Pictures/'
 			ImgName=st + ' ' + mac+'.jpg'
 			ImgName_t=ImgName+'"'
 
-		capString= BaseStringi + ImgName_t
-		os.system(capString)#uses capString as a command for the OS to run
+			capString= BaseStringi + ImgName_t
+			os.system(capString)#uses capString as a command for the OS to run
 
 		#Time measurements
 		time_to_capture_image = start_time - time.time()
@@ -84,9 +83,9 @@ for x in range(0,999):
 
 
 		#TCP transmission
-		print 'TCP target IP:', TCP_IP
-		print "TCP target port:", TCP_PORT
-		print "message:", MESSAGE
+		# print 'TCP target IP:', TCP_IP
+		# print "TCP target port:", TCP_PORT
+		# print "message:", MESSAGE
 
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		sock.connect((TCP_IP,TCP_PORT))
