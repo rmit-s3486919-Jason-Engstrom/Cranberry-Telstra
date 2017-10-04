@@ -23,6 +23,8 @@ sock.listen(1)
 # store = storage.Client()
 # bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
 
+count = 0
+
 while True:
     newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
     # print a
@@ -30,7 +32,8 @@ while True:
     if not data:
         continue
     else:
-        print "received"
+	count = count + 1
+        print "received" + str(count)
         newSock.send("Reply")
         newSock.close()
         #
