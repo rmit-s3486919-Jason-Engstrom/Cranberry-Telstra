@@ -15,7 +15,7 @@ goods = 0;
 bads = 0;
 
 #Forever loops
-for x in range(0,999):
+for x in range(0,100):
 	#Time measurements
 	start_time = time.time()
 
@@ -66,16 +66,24 @@ for x in range(0,999):
 		reply = sock.recv(BUFFER_SIZE)
 		goods = goods + 1
 		time_to_receive_reply = time.time() - start_time
+		f = open('log.txt','a')
+		f.write(str(time_to_receive_reply))
+		f.write('/n')
+		f.close()
+		
 		print(str(time_to_receive_reply))
 	except socket.error, e:
 		# sock.close()
 		bads = bads + 1
-		# print e.errno
+		print ("err")
 	sock.close()
 
 		# print(str(x))
 		# print(str(start_time))
 		# print(str(time_to_capture_image))
-
-print "GOODS! :) " + goods
-print "BADS? :( " + bads
+f = open('log.txt','a')
+f.write('GOODS! :) ' + str(goods) + '/n')
+f.write('BADS? :( ' + str(bads) + '/n')
+f.close()
+print "GOODS! :) " + str(goods)
+print "BADS? :( " + str(bads)

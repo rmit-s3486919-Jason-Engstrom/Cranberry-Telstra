@@ -54,7 +54,7 @@ while True:
         os.system(capString)#uses capString as a command for the OS to run
 
         #Time measurements
-        time_to_capture_image = start_time - time.time()
+        time_to_capture_image = time.time() - start_time
 
         ########################################
         ##     SEND IMAGE TO ACCESS POINT     ##
@@ -88,7 +88,7 @@ while True:
         reply = sock.recv(BUFFER_SIZE)
         print reply
         sock.close()
-        time_to_receive_reply = start_time - time.time()
+        time_to_receive_reply = time.time() - start_time
         print("Start time:" + str(start_time))
         print("Time to capture image: " + str(time_to_capture_image))
         print("Time to recieve reply: " + str(time_to_receive_reply))
