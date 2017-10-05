@@ -39,62 +39,62 @@ for x in range(0,1):
  #        print "received" + str(count)
  #        newSock.send("Reply")
  #        newSock.close()
-        #
-        # #Create/append to log file
-        # f = open('dbupload.log','a')
-        # f.write(data)
-        # f.write('\n')
-        #
-        # #Tokenise Data
-        # entrys = data.split("|", 6)
-        # #DOGFOOD should check it's in the correct format at this point
-        # ts = entrys[0]
-        # mac = entrys[1]
-        # deviceName = entrys[2]
-        # longitude = float(entrys[3])
-        # latitude = float(entrys[4])
-        # user_id = str(entrys[5])
-        # i_spaces = entrys[6]
-        # i = i_spaces.replace(" ","_")
+		#
+		# #Create/append to log file
+		# f = open('dbupload.log','a')
+		# f.write(data)
+		# f.write('\n')
+		#
+		# #Tokenise Data
+		# entrys = data.split("|", 6)
+		# #DOGFOOD should check it's in the correct format at this point
+		# ts = entrys[0]
+		# mac = entrys[1]
+		# deviceName = entrys[2]
+		# longitude = float(entrys[3])
+		# latitude = float(entrys[4])
+		# user_id = str(entrys[5])
+		# i_spaces = entrys[6]
+		# i = i_spaces.replace(" ","_")
 
 
 
 
 
-        ######################
-        ##   UPLOAD IMAGE   ##
-        ######################
-        # uploads to bucket gyu, which stands for giant yucky umbrellas
-        # uploads to bucket gyu, which stands for generous yeti unions
+		######################
+		##   UPLOAD IMAGE   ##
+		######################
+		# uploads to bucket gyu, which stands for giant yucky umbrellas
+		# uploads to bucket gyu, which stands for generous yeti unions
 
 		start_time = time.time()
-        print "Beginning Image Upload"
-        blob = bucket.blob(i)
-        blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
-        blob.make_public()
-        print "Image Upload Complete"
-        iup_time = time.time() - start_time
-        print iup_time
+		print "Beginning Image Upload"
+		blob = bucket.blob(i)
+		blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
+		blob.make_public()
+		print "Image Upload Complete"
+		iup_time = time.time() - start_time
+		print iup_time
 
-        #########################
-        ##   UPDATE DATABASE   ##
-        #########################
-        i_url = blob.public_url
-        print i_url
-        cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,img_name,device_id))	#adds data into new entry on table
+		#########################
+		##   UPDATE DATABASE   ##
+		#########################
+		i_url = blob.public_url
+		print i_url
+		cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,img_name,device_id))	#adds data into new entry on table
 
-        con.commit()				#confirms database edits
+		con.commit()				#confirms database edits
 
 
-        #########################
-        ##   Vision API Stuff  ##
-        #########################
-        # data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
+		#########################
+		##   Vision API Stuff  ##
+		#########################
+		# data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
 
-        # try:
-        #     response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
-        #     print("Vision API call was successful and something should have been returned")
-        # except:
-        #     print('Exception!')
+		# try:
+		#     response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
+		#     print("Vision API call was successful and something should have been returned")
+		# except:
+		#     print('Exception!')
 
 print "How did you get outside the while True?\nYou really shouldn't be here"
