@@ -85,7 +85,7 @@ for x in range(0,1):
 		#########################
 		i_url = blob.public_url
 		print i_url
-		cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,image_name,device_id))	#adds data into new entry on table
+		cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id, i_up_time) VALUES( %s, %s, %s, %s);",(start_time,image_name,device_id,iup_time))	#adds data into new entry on table
 
 		con.commit()				#confirms database edits
 
