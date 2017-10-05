@@ -11,7 +11,8 @@ TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
 device_id = 3
-img_name = "peoeooeoeoeeoeuoeeueouple"
+image_name = "11.jpg"
+
 
 # #Set up socket to receive data
 # sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -54,8 +55,8 @@ for x in range(0,1):
 		# longitude = float(entrys[3])
 		# latitude = float(entrys[4])
 		# user_id = str(entrys[5])
-		# i_spaces = entrys[6]
-		# i = i_spaces.replace(" ","_")
+		# image_name = entrys[6]
+		#image_name= image_name.replace(" ","_")
 
 
 
@@ -69,8 +70,8 @@ for x in range(0,1):
 
 		start_time = time.time()
 		print "Beginning Image Upload"
-		blob = bucket.blob(i)
-		blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
+		blob = bucket.blob(image_name)
+		blob.upload_from_filename("/home/pi/Pictures/" + image_name)
 		blob.make_public()
 		print "Image Upload Complete"
 		iup_time = time.time() - start_time
@@ -81,7 +82,7 @@ for x in range(0,1):
 		#########################
 		i_url = blob.public_url
 		print i_url
-		cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,img_name,device_id))	#adds data into new entry on table
+		cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,image_name,device_id))	#adds data into new entry on table
 
 		con.commit()				#confirms database edits
 
@@ -89,7 +90,7 @@ for x in range(0,1):
 		#########################
 		##   Vision API Stuff  ##
 		#########################
-		# data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
+		# data={'photo': open('/home/pi/Pictures/' + image_name,'rb'),'name':'hello'}
 
 		# try:
 		#     response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
