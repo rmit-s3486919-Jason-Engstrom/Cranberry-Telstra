@@ -10,22 +10,25 @@ TCP_IP = '' #since its blank it should mean all available interfaces
 TCP_PORT = 5005
 BUFFER_SIZE = 1024
 
-#Set up socket to receive data
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind((TCP_IP,TCP_PORT))
-sock.listen(1)
+device_id = 3
+img_name = "peoeooeoeoeeoeuoeeueouple"
 
-# #Connect to database
-# con = mdb.connect('104.198.234.164', 'root', 'B3_0ur_lord!',  'predator')
-# cursor = con.cursor()
+# #Set up socket to receive data
+# sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# sock.bind((TCP_IP,TCP_PORT))
+# sock.listen(1)
 
-# #Connect to storage bucket
-# store = storage.Client()
-# bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
+#Connect to database
+con = mdb.connect('104.198.234.164', 'root', 'B3_0ur_lord!',  'predator')
+cursor = con.cursor()
+
+#Connect to storage bucket
+store = storage.Client()
+bucket = store.get_bucket('gyu')#gyu stands for genuine young unicorns
 
 count = 0
 
-while True:
+for x in range(0,1):
  #    newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
  #    # print a
  #    data = newSock.recv(BUFFER_SIZE)
@@ -70,17 +73,15 @@ while True:
         blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
         blob.make_public()
         print "Image Upload Complete"
-        total_time = time.time() - start_time
-        print total_time
+        iup_time = time.time() - start_time
+        print iup_time
 
         #########################
         ##   UPDATE DATABASE   ##
         #########################
         i_url = blob.public_url
         print i_url
-        #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
-        cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s, %s);",(ts,mac,i_url, 0))	#adds data into new entry on table
+        cursor.execute("INSERT INTO test_speed(start_time, img_name, device_id) VALUES( %s, %s, %s);",(start_time,img_name,device_id))	#adds data into new entry on table
 
         con.commit()				#confirms database edits
 
