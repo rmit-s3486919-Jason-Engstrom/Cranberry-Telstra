@@ -26,16 +26,16 @@ sock.listen(1)
 count = 0
 
 while True:
-    newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
-    # print a
-    data = newSock.recv(BUFFER_SIZE)
-    if not data:
-        continue
-    else:
-	count = count + 1
-        print "received" + str(count)
-        newSock.send("Reply")
-        newSock.close()
+ #    newSock, a = sock.accept()#newSock is a new socket for this connection #a is address
+ #    # print a
+ #    data = newSock.recv(BUFFER_SIZE)
+ #    if not data:
+ #        continue
+ #    else:
+	# count = count + 1
+ #        print "received" + str(count)
+ #        newSock.send("Reply")
+ #        newSock.close()
         #
         # #Create/append to log file
         # f = open('dbupload.log','a')
@@ -61,25 +61,28 @@ while True:
         ######################
         ##   UPLOAD IMAGE   ##
         ######################
-        #uploads to bucket gyu, which stands for giant yucky umbrellas
-        #uploads to bucket gyu, which stands for generous yeti unions
+        # uploads to bucket gyu, which stands for giant yucky umbrellas
+        # uploads to bucket gyu, which stands for generous yeti unions
 
-        # print "Beginning Image Upload"
-        # blob = bucket.blob(i)
-        # blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
-        # blob.make_public()
-        # print "Image Upload Complete"
+		start_time = time.time()
+        print "Beginning Image Upload"
+        blob = bucket.blob(i)
+        blob.upload_from_filename("/home/pi/Pictures/" + i_spaces)
+        blob.make_public()
+        print "Image Upload Complete"
+        total_time = time.time() - start_time
+        print total_time
 
         #########################
         ##   UPDATE DATABASE   ##
         #########################
-        # i_url = blob.public_url
-        # print i_url
-        # #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        # cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
-        # cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s, %s);",(ts,mac,i_url, 0))	#adds data into new entry on table
+        i_url = blob.public_url
+        print i_url
+        #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
+        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
+        cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s, %s);",(ts,mac,i_url, 0))	#adds data into new entry on table
 
-        # con.commit()				#confirms database edits
+        con.commit()				#confirms database edits
 
 
         #########################
