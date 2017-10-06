@@ -82,7 +82,7 @@ while True:
         #########################
         ##   Vision API Stuff  ##
         #########################
-        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name':'hello'}
+        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name': img_name}
 
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
