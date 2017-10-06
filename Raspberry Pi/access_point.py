@@ -83,13 +83,14 @@ while True:
         ##   Vision API Stuff  ##
         #########################
         data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'),'name': i_url}
+        print 'into the data array'
         print data['name']
 
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
 
 
-            print response.content
+            #print response.content
         except:
             print('Exception!')
 
