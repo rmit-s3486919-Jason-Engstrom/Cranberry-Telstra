@@ -4,6 +4,7 @@ import fileinput
 import random
 import socket
 import requests
+import time
 
 
 TCP_IP = '' #since its blank it should mean all available interfaces
