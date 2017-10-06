@@ -87,7 +87,7 @@ while True:
         print data['name']
 
         try:
-            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
+            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', params=data)
 
 
             print response.content
