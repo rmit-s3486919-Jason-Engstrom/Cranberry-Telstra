@@ -83,7 +83,7 @@ while True:
         #########################
         ##   Vision API Stuff  ##
         #########################
-        data={'name': i_url, 'photo': open('/home/pi/Pictures/' + i_spaces,'rb')}
+        data={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'), 'name': i_url}
         print 'into the data array'
         print data['name']
 
