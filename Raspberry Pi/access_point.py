@@ -88,7 +88,7 @@ while True:
         print payload['iname']
 
         try:
-            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', data = payload)
+            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files = {'photo': open('/home/pi/Pictures/' + i_spaces,'rb')}, data = {'iname': i_url})
 
 
             print response.text
