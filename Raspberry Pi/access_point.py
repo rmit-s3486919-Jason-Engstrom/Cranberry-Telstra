@@ -88,12 +88,13 @@ while True:
         print data['name']
 
         try:
-            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', params=data)
+            response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files=data)
 
 
             print response.content
-        except:
+        except Exception as e:
             print('Exception!')
+            print(e.errno + e.strerror)
         time.sleep(1);
 
 print "How did you get outside the while True?\nYou really shouldn't be here"
