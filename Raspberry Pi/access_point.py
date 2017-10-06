@@ -85,7 +85,7 @@ while True:
         #########################
         payload={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'), 'iname': i_url}
         print 'into the data array'
-        print data['iname']
+        print payload['iname']
 
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', data = payload)
