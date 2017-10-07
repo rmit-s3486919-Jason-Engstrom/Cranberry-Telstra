@@ -83,10 +83,6 @@ while True:
         #########################
         ##   Vision API Stuff  ##
         #########################
-        payload={'photo': open('/home/pi/Pictures/' + i_spaces,'rb'), 'iname': i_url}
-        print 'into the data array'
-        print payload['iname']
-
         try:
             response = requests.post('http://www.cranberry-telstra.appspot.com/site/parts/visionTest.php', files = {'photo': open('/home/pi/Pictures/' + i_spaces,'rb')}, data = {'iname': i_url})
 
