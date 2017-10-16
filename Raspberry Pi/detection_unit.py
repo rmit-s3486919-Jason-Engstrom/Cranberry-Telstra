@@ -47,7 +47,7 @@ while True:
         ##           CAPTURE  IMAGE           ##
         ########################################
 
-        BaseStringi= 'raspistill -vf -hf -h 1080 -w 1440 -o "/home/pi/Pictures/ -ex sport --timeout 1'
+        BaseStringi= 'raspistill -vf -hf -h 1080 -w 1440 -ex sport --timeout 1 -o "/home/pi/Pictures/'
         ImgName=st + ' ' + mac+'.jpg'
         ImgName_t=ImgName+'"'
         capString= BaseStringi + ImgName_t
