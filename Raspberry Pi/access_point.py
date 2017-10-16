@@ -73,7 +73,8 @@ while True:
         ##   GET LOCATION   ##
         ######################
 
-        cursor.execute("INSERT IGNORE INTO devices(id_mac) VALUES( %s);",(mac)) #Creates new device on devices table if this mac has not been recorded
+        print mac
+        cursor.execute("INSERT IGNORE INTO devices(id_mac) VALUES(%s);",[mac]) #Creates new device on devices table if this mac has not been recorded
         con.commit()
 
         cursor.execute("SELECT locations_id FROM devices WHERE id_mac = " + mac);
