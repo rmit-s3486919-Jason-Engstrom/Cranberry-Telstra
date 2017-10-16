@@ -45,11 +45,11 @@ while True:
         #DOGFOOD should check it's in the correct format at this point
         ts = entrys[0]
         mac = entrys[1]
-        deviceName = entrys[2]
-        longitude = float(entrys[3])
-        latitude = float(entrys[4])
-        user_id = str(entrys[5])
-        i_spaces = entrys[6]
+        # deviceName = entrys[2]#Unused 
+        # longitude = float(entrys[3])#Unused 
+        # latitude = float(entrys[4])#Unused 
+        # user_id = str(entrys[5])#Unused 
+        i_spaces = entrys[2]
         i = i_spaces.replace(" ","_")
 
 
@@ -68,15 +68,25 @@ while True:
         blob.make_public()
         print "Image Upload Complete"
 
+        ######################
+        ##   GET LOCATION   ##
+        ######################
+
+        cursor.execute("INSERT IGNORE INTO devices(id_mac) VALUES( %s);",(mac)) #Creates new device on devices table if this mac has not been recorded
+        con.commit()
+
+        cursor.execute("SELECT locations_id FROM devices WHERE id_mac = " + mac);
+        result = cursor.fetch()
+        print result[0]
+        lid = result[0]
+
         #########################
         ##   UPDATE DATABASE   ##
         #########################
         i_url = blob.public_url
         print i_url
         #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        cursor.execute("INSERT IGNORE INTO devices(id, name, longitude, lattitude, users_id) VALUES( %s, %s, %s, %s, %s);",(mac,deviceName,longitude,latitude,user_id))	#adds data into new entry on table
-        cursor.execute("INSERT INTO detections(time, devices_id, img_name, vapi_accepted) VALUES( %s, %s, %s, %s);",(ts,mac,i_url, 0))	#adds data into new entry on table
-
+        cursor.execute("INSERT INTO detections(time, locations_id, img_name) VALUES( %s, %s, %s, %s);",(ts,lid,i_url))	#adds data into new entry on table
         con.commit()				#confirms database edits
 
 

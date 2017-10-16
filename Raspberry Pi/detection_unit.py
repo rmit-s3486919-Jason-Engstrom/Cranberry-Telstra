@@ -73,8 +73,9 @@ while True:
 
         #Uses TCP
         # MESSAGE = st +'|'+ device +'|'+ lat +'|'+ lon +'|'+ ImgName
+        # MESSAGE = st +'|'+ mac +'|'+ deviceName +'|'+ longitude +'|'+ latitude +'|'+ user_id +'|'+ ImgName
 
-        MESSAGE = st +'|'+ mac +'|'+ deviceName +'|'+ longitude +'|'+ latitude +'|'+ user_id +'|'+ ImgName
+        MESSAGE = st +'|'+ mac +'|'+ ImgName
 
 
         #TCP transmission
