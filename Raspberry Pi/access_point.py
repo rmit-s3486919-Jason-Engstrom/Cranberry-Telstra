@@ -50,6 +50,7 @@ while True:
         # latitude = float(entrys[4])#Unused 
         # user_id = str(entrys[5])#Unused 
         i_spaces = entrys[2]
+        print i_spaces
         i = i_spaces.replace(" ","_")
 
 
