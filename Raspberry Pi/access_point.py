@@ -78,7 +78,7 @@ while True:
         con.commit()
 
         cursor.execute("SELECT locations_id FROM devices WHERE id_mac = " + mac);
-        result = cursor.fetch()
+        result = cursor.fetchone()
         print result[0]
         lid = result[0]
 
