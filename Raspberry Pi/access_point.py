@@ -88,7 +88,7 @@ while True:
         i_url = blob.public_url
         print i_url
         #cursor.execute("insert into locs(devNm, time, lat, lng, img) VALUES( %s, %s, %s, %s, %s)",(deviceName,ts,longitude,latitude,i_url))	#adds data into new entry on table
-        cursor.execute("INSERT INTO detections(time, locations_id, img_name) VALUES( %s, %s, %s, %s);",(ts,lid,i_url))	#adds data into new entry on table
+        cursor.execute("INSERT INTO detections(time, locations_id, img_name) VALUES( %s, %s, %s);",(ts,lid,i_url))	#adds data into new entry on table
         con.commit()				#confirms database edits
 
 
